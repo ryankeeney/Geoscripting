@@ -5,11 +5,11 @@ Authors@R: person("Ryan", "Keeney", email = "ryan.keeney@du.edu", role = c("aut"
 Description: Provides a set of tools to spatially connect polygons to a network of lines.
 Depends: R (>= 3.3.3)
 Imports:
-		sp
-		rgdal
-		rgeos
-		maptools
-		plotKML
+		devtools::use_package(sp)
+		devtools::use_package(rgdal)
+		devtools::use_package(rgeos)
+		devtools::use_package(maptools)
+		devtools::use_package(plotKML)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
