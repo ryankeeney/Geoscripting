@@ -1,0 +1,16 @@
+Package: ParcelToNetwork
+Title: Provides functions for connecting polygons to a line network. (one line, title case)
+Version: 0.0.0.9000
+Authors@R: person("Ryan", "Keeney", email = "ryan.keeney@du.edu", role = c("aut", "cre"))
+Description: Provides a set of tools to spatially connect polygons to a network of lines.
+Depends: R (>= 3.3.3)
+Imports:
+		sp
+		rgdal
+		rgeos
+		maptools
+		plotKML
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
