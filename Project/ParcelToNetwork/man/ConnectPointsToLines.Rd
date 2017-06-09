@@ -2,8 +2,7 @@
 % Please edit documentation in R/ConnectPointsToLines.R
 \name{ConnectPointsToLines}
 \alias{ConnectPointsToLines}
-\title{ConnectPointsToLines
-For every point, a new line is created connecting it to the closest line.}
+\title{ConnectPointsToLines}
 \usage{
 ConnectPointsToLines(centroids, lines)
 }
@@ -13,13 +12,9 @@ ConnectPointsToLines(centroids, lines)
 \item{lines}{A spatiallines dataset or a spatiallinesdataframe.}
 }
 \value{
-"snapped_points" A spatialpointsdataframe of the points on the line
-nearest to each point.
-
-"connector_lines" A spatiallinesdata frame. Each line connects the
+A spatiallinesdata frame. Each line connects the
 snapped_points to the centroids.
 }
 \description{
-ConnectPointsToLines
-For every point, a new line is created connecting it to the closest line.
+For every point, a new line is created connecting it to the closest line
 }

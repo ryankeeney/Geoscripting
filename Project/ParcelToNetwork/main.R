@@ -1,36 +1,37 @@
-#Ryan Keeney
+#Example Using Sample Data
 
-#Required libraries for package
+#Required libraries for package.
+#I've tried to get them installed automatically by using roxygen to edit the 
+#NAMESPACE folder but I would always get error. Including them in DESCRIPTION is 
+#not sufficient. Therefore they must be installed manually.
 library(sp)
-library(rgdal)
 library(rgeos)
+library(rgdal)
 library(maptools)
 library(plotKML)
 
-#Poly Centroid Example
-
-
-
-#Read in the polygon shapefile
+#Read in the sample data
 parcels <- readOGR("data", "parcels")
+sidewalks <-readOGR("data", "sidewalks")
 
-#Generate centroid SpatialPoints of the polygon
-centroids_temp <- gCentroid(parcels, byid = TRUE)
+#Run the PolyCentroids function to generate parcel centroids with the parcel
+#attribute data.
+centroids <- PolyCentroid(parcels)
 
-#Convert the centroid SpatialPoints to a SpatialPointsDataframe
-##Spatially join the spatial points to the parcels to create a generic dataframe
-centroids_temp2 <- over(centroids_temp, parcels)
-##Get the coordinates and projection information of the points.
-coords <- data.frame(centroids_temp2$x, centroids_temp2$y)
-prj <- CRS("+proj=lcc +lat_1=38.45 +lat_2=39.75 +lat_0=37.83333333333334 +lon_0=-105.5 +x_0=914401.8288999999 +y_0=304800.6096 +datum=NAD83 +units=us-ft +no_defs +ellps=GRS80 +towgs84=0,0,0")
-##Create a SpatialPointsDataFrame of the centroids.
-centroids <- SpatialPointsDataFrame(coords, data = centroids_temp2, proj4string = prj )
+#Run ConnectPointsToLines to generate lines connecting the parcel centroids to
+#sidewalk lines. 
+connector_lines <- ConnectPointsToLines(centroids, sidewalks)
+
+plot(parcels)
+plot(sidewalks, add = TRUE)
+plot(centroids, add = TRUE)
+plot(connector_lines, add = TRUE)
+
+# #Run Integrate Lines to combine the datasets
+# connected_lines <- IntegrateLines(sidewalks,connector_lines)
 
 
-#--------------------------------
 
-
-sidewalks <- readOGR("data", "sidewalks")
 
 
 

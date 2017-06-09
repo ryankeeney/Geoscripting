@@ -2,20 +2,18 @@
 % Please edit documentation in R/PolyCentroid.R
 \name{PolyCentroid}
 \alias{PolyCentroid}
-\title{PolyCentroid
-Take a spatialpolygonsdataframe object and generate a spatialpointsdataframe
-of their spatial centers. Preserve the attributes of the parcels in each point.}
+\title{PolyCentroid}
 \usage{
 PolyCentroid(polygon)
 }
 \arguments{
-\item{polygon}{A spatialpolygonsdataframe.}
+\item{A}{spatialpolygonsdataframe.}
 }
 \value{
-"centroids" A spatialpointsdataframe of the centerspoints of the polygons.
+A spatialpointsdataframe of the centerspoints of the polygons.
 }
 \description{
-PolyCentroid
 Take a spatialpolygonsdataframe object and generate a spatialpointsdataframe
-of their spatial centers. Preserve the attributes of the parcels in each point.
+of their spatial centers. Preserve the attributes of the parcels in each
+point.
 }
